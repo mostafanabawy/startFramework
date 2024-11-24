@@ -4,6 +4,11 @@
 }
 .navbar, footer{
     background-color: var(--second-color);
+    transition: all .6s;
+}
+
+.h-small{
+    padding-bottom: 20px !important;
 }
 .active{
     background-color: var(--main-color) !important;

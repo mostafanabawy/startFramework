@@ -1,9 +1,22 @@
+import { useEffect, useState } from "react"
 import { Link, NavLink, Outlet } from "react-router-dom"
 
 function Layout() {
+    let [isScrolled, setIsScrolled] = useState(false);
+    useEffect(()=>{
+        function handleScroll() {
+            setIsScrolled(window.scrollY !== 0); // Updates state based on scroll position
+        }
+    
+        
+        window.addEventListener("scroll", handleScroll);
+    
+        
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+    
     return (<>
-
-        <nav className="navbar navbar-expand-lg fixed-top">
+        <nav className={`navbar navbar-expand-lg fixed-top ${isScrolled ? "h-small" : ""}`}>
             <div className="container">
                 <Link to="/" className="navbar-brand text-light fw-bolder fs-2">START FRAMEWORK</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

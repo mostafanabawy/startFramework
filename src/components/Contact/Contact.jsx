@@ -1,6 +1,6 @@
 import { useState } from "react"
-
 function Contact() {
+    
     let [inputValue1 , setInput1] = useState(null)
     let [inputValue2 , setInput2] = useState(null)
     let [inputValue3 , setInput3] = useState(null)
